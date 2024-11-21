@@ -1,5 +1,5 @@
 const myLibrary = [];
-const addBook = document.querySelector('.add_book');
+const addBook = document.querySelector('.add_book > button');
 const form = document.querySelector('form')
 
 addBook.addEventListener('click', function(){
