@@ -1,7 +1,7 @@
 h1 {
   font-size: 2rem;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 10px;
   margin-bottom: 25px;
 }
 
@@ -29,6 +29,7 @@ form {
   width: 90%;
   margin: auto;
   display: none;
+  margin-top: 5px;
 }
 
 form div {
@@ -52,4 +53,22 @@ input {
 #submit {
     /* width: 60%; */
     height: 26px;
+}
+
+.cards_container {
+    width: 90%;
+    height: 74vh;
+    margin: auto;
+    margin-top: 25px;
+    /* background-color: orange; */
+    border: 2px dotted orange;
+    /* display: grid;
+    align-content: center; */
+}
+
+h3 {
+    font-size: 2rem;
+    text-align: center;
+    position: relative;
+    top: 180px;
 }
