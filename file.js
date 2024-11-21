@@ -1,4 +1,12 @@
 const myLibrary = [];
+const addBook = document.querySelector('.add_book');
+const form = document.querySelector('form')
+
+addBook.addEventListener('click', function(){
+    addBook.remove()
+    form.style.display = 'flex'
+})
+
 
 function Book(title, author, pages, read){
     this.title = title;
@@ -14,4 +22,6 @@ function addBookToLibrary(title, author, pages, read){
 
 addBookToLibrary('harry', 'rowling', 345, 'yes')
 addBookToLibrary('Ring', 'me', 24, 'no')
-console.table(myLibrary)
+
+
+
