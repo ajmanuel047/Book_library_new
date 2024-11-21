@@ -8,7 +8,38 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Book Library</h1>
+  <h1>My Book Library</h1>
+  <div class="add_book">
+    <button>Add Book</button>
+  </div>
+
+  <form>
+    <div>
+      <label for = "title">Book Title : </label>
+      <input type = "text" id = "title" name = "title">
+    </div>
+
+    <div>
+      <label for = "author">Book Author</label>
+      <input type = "text" id = "author" name = "author">
+    </div>
+
+    <div>
+      <label>Pages</label>
+      <input type = "number" min = "0">
+    </div>
+
+    <div>
+      <label for = "author">Submit</label>
+      <button type = "submit" id="submit">Add Book</button>  
+    </div>
+  
+  </form>
+<!-- 
+  <p class= 'title'></p>
+  <p class= 'author'></p>
+  <p class='pages'></p>
+  <p class='read'></p> -->
     <script src="file.js"></script>
 </body>
 </html>
