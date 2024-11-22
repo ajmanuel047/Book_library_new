@@ -64,11 +64,19 @@ input {
     border: 2px dotted orange;
     /* display: grid;
     align-content: center; */
+    cursor: pointer;
 }
 
+/* .cards_container:hover {
+  background-color: rgb(234, 245, 248);
+} */
+
 h3 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-align: center;
     position: relative;
     top: 180px;
 }
+
+/*manually create the divs first and make it responsive before you
+worry about the contents of the div*/
