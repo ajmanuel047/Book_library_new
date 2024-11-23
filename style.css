@@ -57,19 +57,21 @@ input {
 
 .cards_container {
     width: 90%;
-    height: 74vh;
+    height: 72vh;
     margin: auto;
     margin-top: 25px;
-    /* background-color: orange; */
     border: 2px dotted orange;
-    /* display: grid;
-    align-content: center; */
     cursor: pointer;
-}
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); 
+    gap: 5px;
+  }
 
-/* .cards_container:hover {
-  background-color: rgb(234, 245, 248);
-} */
+.card {
+  background-color: orange;
+  height: 200px;
+  
+}
 
 h3 {
     font-size: 1.5rem;
@@ -78,5 +80,8 @@ h3 {
     top: 180px;
 }
 
-/*manually create the divs first and make it responsive before you
-worry about the contents of the div*/
+button[type=submit] {
+  cursor: pointer;
+}
+
+/* bottom space between cards is too much try fix that */

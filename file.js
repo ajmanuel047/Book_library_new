@@ -1,18 +1,28 @@
 const myLibrary = [];
 const addBook = document.querySelector('.add_book > button');
-const form = document.querySelector('form')
-const cardContainer = document.querySelector('.cards_container')
-const containerTitle = document.querySelector('h3')
+const form = document.querySelector('form');
+const cardContainer = document.querySelector('.cards_container');
+const containerTitle = document.querySelector('h3');
+const submitButton = document.querySelector('button[type=submit]')
+
+submitButton.addEventListener('click', function(event){
+    const div = document.createElement('div');
+    div.classList.add('card')
+    cardContainer.appendChild(div)
+    event.preventDefault();
+
+})
 
 addBook.addEventListener('click', function(){
-    addBook.remove()
-    form.style.display = 'flex'
+    addBook.remove();
+    form.style.display = 'flex';
+    containerTitle.remove();
 })
 
 cardContainer.addEventListener('click', function () {
-    containerTitle.remove()
-    addBook.remove()
-    form.style.display = 'flex'
+    containerTitle.remove();
+    addBook.remove();
+    form.style.display = 'flex';
 })
 
 function Book(title, author, pages, read){
