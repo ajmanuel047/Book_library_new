@@ -56,28 +56,41 @@ input {
 }
 
 .cards_container {
-    width: 90%;
-    height: 72vh;
-    margin: auto;
-    margin-top: 25px;
-    border: 2px dotted orange;
-    cursor: pointer;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); 
-    gap: 5px;
-  }
+  width: 90%;
+  margin: auto;
+  margin-top: 25px;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); 
+  gap: 5px;
+}
+
+.container_border {
+  width: 90%;
+  height: 71vh;
+  border: 2px dotted orange;
+  margin: auto;
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.new_card_container {
+  width: 90%;
+  border: 2px dotted orange;
+}
+
+h3 {
+  font-size: 1.5rem;
+  text-align: center;  
+}
 
 .card {
   background-color: orange;
   height: 200px;
   
-}
-
-h3 {
-    font-size: 1.5rem;
-    text-align: center;
-    position: relative;
-    top: 180px;
 }
 
 button[type=submit] {
