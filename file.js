@@ -9,12 +9,28 @@ const containerBorder = document.querySelector('.container_border')
 
 submitButton.addEventListener('click', function(event){
     const div = document.createElement('div');
-    div.classList.add('card')
-    cardContainer.appendChild(div)
+    div.classList.add('card');
+    cardContainer.appendChild(div);
     event.preventDefault();
     containerBorder.remove();
-    cardContainer.classList.add('new_card_container')
+    cardContainer.classList.add('new_card_container');
 
+    const bookTitle = document.createElement('p');
+    bookTitle.textContent = `Book Title : `;
+
+    const author = document.createElement('p');
+    author.textContent = `Author : `
+
+    const pages = document.createElement('p');
+    pages.textContent = `Number Of Pages : `;
+
+    const bookComplete = document.createElement('p');
+    pages.textContent =  `Completed : `
+
+    div.appendChild(bookTitle);
+    div.appendChild(author);
+    div.appendChild(pages);
+    div.appendChild(bookComplete);
 })
 
 addBook.addEventListener('click', function(){
