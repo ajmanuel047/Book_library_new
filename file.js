@@ -52,6 +52,9 @@ submitButton.addEventListener('click', function(event){
 
     const bookComplete = document.createElement('p');
     bookComplete.textContent =  `Completed : ${displayBook(myLibrary).read}`
+    titleOfBook.value = '';
+    authorOfBook.value = '';
+    numberOfPages.value = '';
 
     div.appendChild(bookTitle);
     div.appendChild(author);
