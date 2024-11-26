@@ -54,14 +54,24 @@ submitButton.addEventListener('click', function(event){
     const bookComplete = document.createElement('p');
     bookComplete.textContent =  `Completed : ${displayBook(myLibrary).read}`
     
+    const deleteBook = document.createElement('button')
+    deleteBook.textContent = 'Remove Book'
+
+    const bookCompleted = document.createElement('button');
+    bookCompleted.textContent = 'Finished';
+
+
     titleOfBook.value = '';
     authorOfBook.value = '';
     numberOfPages.value = '';
 
+    
     div.appendChild(bookTitle);
     div.appendChild(author);
     div.appendChild(pages);
     div.appendChild(bookComplete);
+    div.appendChild(deleteBook);
+    div.appendChild(bookCompleted);
 }
     event.preventDefault();
 
