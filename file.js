@@ -5,7 +5,9 @@ const cardContainer = document.querySelector('.cards_container');
 const containerTitle = document.querySelector('h3');
 const submitButton = document.querySelector('button[type=submit]')
 const containerBorder = document.querySelector('.container_border')
-
+const titleOfBook = document.querySelector('#title');
+const authorOfBook = document.querySelector('#author')
+const numberOfPages = document.querySelector('#pages')
 
 function Book(title, author, pages, read){
     this.title = title;
@@ -19,27 +21,26 @@ function addBookToLibrary(title, author, pages, read){
     myLibrary.push(book)
 }
 
-addBookToLibrary('harry', 'rowling', 345, 'yes')
-console.log(myLibrary)
-// addBookToLibrary('Ring', 'me', 24, 'no')
-
-
 function displayBook (array) {
-    for(let i = 0; i < array.length; i++){
-        return array[i]
+    let obj;
+    for(let prop in array){
+         obj = array[prop]
     }
+    return obj
 }
-
+console.log(displayBook(myLibrary))
 
 
 submitButton.addEventListener('click', function(event){
+    addBookToLibrary(titleOfBook.value, authorOfBook.value, numberOfPages.value, 'yes')
+    
     const div = document.createElement('div');
     div.classList.add('card');
     cardContainer.appendChild(div);
     event.preventDefault();
     containerBorder.remove();
     cardContainer.classList.add('new_card_container');
-
+    
     const bookTitle = document.createElement('p');
     bookTitle.textContent = `Book Title : ${displayBook(myLibrary).title}`;
 
@@ -75,3 +76,5 @@ containerBorder.addEventListener('click', function(){
 
 
 
+
+console.log(myLibrary)
