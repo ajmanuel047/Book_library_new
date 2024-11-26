@@ -34,6 +34,7 @@ console.log(displayBook(myLibrary))
 submitButton.addEventListener('click', function(event){
     addBookToLibrary(titleOfBook.value, authorOfBook.value, numberOfPages.value, 'yes')
     
+    if(titleOfBook.value != '' && authorOfBook.value != '' & numberOfPages.value != ''){
     const div = document.createElement('div');
     div.classList.add('card');
     cardContainer.appendChild(div);
@@ -52,6 +53,7 @@ submitButton.addEventListener('click', function(event){
 
     const bookComplete = document.createElement('p');
     bookComplete.textContent =  `Completed : ${displayBook(myLibrary).read}`
+    
     titleOfBook.value = '';
     authorOfBook.value = '';
     numberOfPages.value = '';
@@ -60,6 +62,11 @@ submitButton.addEventListener('click', function(event){
     div.appendChild(author);
     div.appendChild(pages);
     div.appendChild(bookComplete);
+}
+    event.preventDefault();
+
+
+
 })
 
 addBook.addEventListener('click', function(){
