@@ -41,7 +41,10 @@ submitButton.addEventListener('click', function(event){
     event.preventDefault();
     containerBorder.remove();
     cardContainer.classList.add('new_card_container');
-    
+    cardContainer.classList.remove('container_border')
+    // document.querySelector('cards_container h1').remove()
+
+
     const bookTitle = document.createElement('p');
     bookTitle.textContent = `Book Title : ${displayBook(myLibrary).title}`;
 
@@ -56,6 +59,8 @@ submitButton.addEventListener('click', function(event){
     
     const deleteBook = document.createElement('button')
     deleteBook.textContent = 'Remove Book'
+    deleteBook.className = 'deleteBtn'
+
 
     const bookCompleted = document.createElement('button');
     bookCompleted.textContent = 'Finished';
@@ -64,6 +69,28 @@ submitButton.addEventListener('click', function(event){
     titleOfBook.value = '';
     authorOfBook.value = '';
     numberOfPages.value = '';
+
+    const deleteButton = document.querySelector('.deleteBtn');
+    deleteBook.addEventListener('click', function(){
+    // document.body.style.backgroundColor = 'green'
+    div.remove()
+    myLibrary.pop()
+    console.log(myLibrary)
+    console.log(myLibrary.length)
+    if(myLibrary.length == 0){
+        // cardContainer.classList.add('new_card_container');
+        // document.body.style.backgroundColor = 'pink'
+        cardContainer.classList.remove('new_card_container')
+        cardContainer.classList.add('container_border')
+    
+        // const newTitle = document.createElement('h1')
+        // newTitle.className = 'newTitle'
+        // newTitle.textContent = 'Fill The Form To Add Your Books'
+        // cardContainer.appendChild(newTitle)
+// after clicking addbook i see a bug border dotted line at the bottom of the page
+    }
+})
+
 
     
     div.appendChild(bookTitle);
@@ -96,5 +123,9 @@ containerBorder.addEventListener('click', function(){
 
 
 
+
+// i was trying to make the form not to be empty
+// after the final delete. You might want to leave that 
+// for later
 
 console.log(myLibrary)
