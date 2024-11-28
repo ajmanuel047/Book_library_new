@@ -9,6 +9,8 @@ const titleOfBook = document.querySelector('#title');
 const authorOfBook = document.querySelector('#author')
 const numberOfPages = document.querySelector('#pages')
 
+let bookCompletedButtonClicked = 'no'
+
 function Book(title, author, pages, read){
     this.title = title;
     this.author = author;
@@ -16,9 +18,18 @@ function Book(title, author, pages, read){
     this.read = read;    
 }
 
+Book.prototype.readStatus = function (){
+    if(bookCompletedButtonClicked == 'yes'){
+        return 'yes'
+    }else if(bookCompletedButtonClicked == 'no'){
+        return 'no'
+    }
+}
+
 function addBookToLibrary(title, author, pages, read){
     const book = new Book(title, author, pages, read)
     myLibrary.push(book)
+    return book.readStatus()
 }
 
 function displayBook (array) {
@@ -28,11 +39,10 @@ function displayBook (array) {
     }
     return obj
 }
-console.log(displayBook(myLibrary))
 
 
 submitButton.addEventListener('click', function(event){
-    addBookToLibrary(titleOfBook.value, authorOfBook.value, numberOfPages.value, 'yes')
+    addBookToLibrary(titleOfBook.value, authorOfBook.value, numberOfPages.value, '')
     
     if(titleOfBook.value != '' && authorOfBook.value != '' & numberOfPages.value != ''){
     const div = document.createElement('div');
@@ -63,8 +73,26 @@ submitButton.addEventListener('click', function(event){
 
 
     const bookCompleted = document.createElement('button');
-    bookCompleted.textContent = 'Finished';
+    bookCompleted.textContent = 'Completed?';
 
+    bookCompleted.addEventListener('click', function(){
+        
+        if(addBookToLibrary() == 'yes'){
+            document.body.style.backgroundColor = 'green' 
+            bookCompleted.textContent = 'Not Completed'
+            bookComplete.textContent =  `Completed : No`
+
+            bookCompletedButtonClicked = 'no'
+        }else if(addBookToLibrary() == 'no'){
+            document.body.style.backgroundColor = 'red' 
+            bookCompleted.textContent = 'Completed'
+            bookComplete.textContent =  `Completed : Yes`
+
+            bookCompletedButtonClicked = 'yes'
+
+        }
+        
+    })
 
     titleOfBook.value = '';
     authorOfBook.value = '';
@@ -81,17 +109,16 @@ submitButton.addEventListener('click', function(event){
         // cardContainer.classList.add('new_card_container');
         // document.body.style.backgroundColor = 'pink'
         cardContainer.classList.remove('new_card_container')
-        cardContainer.classList.add('container_border')
-    
+    document.body.appendChild(containerBorder)
+    containerBorder.style.position = 'relative'
+    containerBorder.style.top = '-25px'
         // const newTitle = document.createElement('h1')
         // newTitle.className = 'newTitle'
         // newTitle.textContent = 'Fill The Form To Add Your Books'
         // cardContainer.appendChild(newTitle)
 // after clicking addbook i see a bug border dotted line at the bottom of the page
-    }
+    }  
 })
-
-
     
     div.appendChild(bookTitle);
     div.appendChild(author);
@@ -101,9 +128,6 @@ submitButton.addEventListener('click', function(event){
     div.appendChild(bookCompleted);
 }
     event.preventDefault();
-
-
-
 })
 
 addBook.addEventListener('click', function(){
@@ -127,5 +151,9 @@ containerBorder.addEventListener('click', function(){
 // i was trying to make the form not to be empty
 // after the final delete. You might want to leave that 
 // for later
+//after you complete this project you need to make edits and try and 
+// use what you learnt in object constructors such as this keyword, bind,
+// call, apply, etc. It is the only way to improve as you need to practice
+// using them in actual projects
 
 console.log(myLibrary)
