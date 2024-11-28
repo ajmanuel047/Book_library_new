@@ -26,11 +26,15 @@ Book.prototype.readStatus = function (){
     }
 }
 
+let book = undefined
+
 function addBookToLibrary(title, author, pages, read){
-    const book = new Book(title, author, pages, read)
+    book = new Book(title, author, pages, read)
     myLibrary.push(book)
     return book.readStatus()
 }
+
+
 
 function displayBook (array) {
     let obj;
@@ -43,7 +47,7 @@ function displayBook (array) {
 
 submitButton.addEventListener('click', function(event){
     addBookToLibrary(titleOfBook.value, authorOfBook.value, numberOfPages.value, '')
-    
+   
     if(titleOfBook.value != '' && authorOfBook.value != '' & numberOfPages.value != ''){
     const div = document.createElement('div');
     div.classList.add('card');
@@ -75,19 +79,20 @@ submitButton.addEventListener('click', function(event){
     const bookCompleted = document.createElement('button');
     bookCompleted.textContent = 'Completed?';
 
+    
+
     bookCompleted.addEventListener('click', function(){
         
-        if(addBookToLibrary() == 'yes'){
+        if(book.readStatus() == 'yes'){
             document.body.style.backgroundColor = 'green' 
             bookCompleted.textContent = 'Not Completed'
             bookComplete.textContent =  `Completed : No`
-
             bookCompletedButtonClicked = 'no'
-        }else if(addBookToLibrary() == 'no'){
+        }
+        else if(book.readStatus() == 'no'){
             document.body.style.backgroundColor = 'red' 
             bookCompleted.textContent = 'Completed'
             bookComplete.textContent =  `Completed : Yes`
-
             bookCompletedButtonClicked = 'yes'
 
         }
