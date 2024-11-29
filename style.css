@@ -1,14 +1,20 @@
-h1 {
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00C9A9;
+  height: 60px;
   font-size: 2rem;
-  text-align: center;
-  margin-top: 10px;
-  margin-bottom: 25px;
+  /* margin-bottom: 25px;   */
+  color: white;
 }
 
 .add_book {
   display: flex;
   justify-content: center; 
-  
+  position: relative;
+  top: 20px;
+  margin-bottom: 30px;
 }
 
 .add_book button {
@@ -29,7 +35,9 @@ form {
   width: 90%;
   margin: auto;
   display: none;
-  margin-top: 5px;
+
+  position: relative;
+  top: -12px;
 }
 
 form div {
@@ -68,9 +76,11 @@ input {
 .container_border {
   width: 90%;
   height: 71vh;
-  border: 2px dotted orange;
+  border: 2px dotted black;
   margin: auto;
-  margin-top: 25px;
+  position: relative;
+  top: 10px;
+  /* margin-top: 25px; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,7 +89,7 @@ input {
 
 .new_card_container {
   width: 90%;
-  border: 2px dotted orange;
+  border: 2px dotted black;
 }
 
 h3 {
@@ -88,15 +98,33 @@ h3 {
 }
 
 .card {
-  background-color: orange;
-  height: 200px;
+  background-color: darkcyan;
+  height: 300px;
   padding: 20px;
   padding-left: 15px;
-  line-height: 35px;
+  line-height: 40px;
+  font-size: 1rem;
+  color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+.card button {
+  margin-right: 10px;
+  font-size: 0.8rem;
+  width: 110px;
+  position: relative;
+  top: 20px;
+  
 }
 
 button[type=submit] {
   cursor: pointer;
+  position: relative;
+  
 }
 
+.newTitle {
+  font-size: 1.7rem;  
+}
 /* bottom space between cards is too much try fix that */
