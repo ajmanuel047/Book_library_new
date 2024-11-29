@@ -34,8 +34,6 @@ function addBookToLibrary(title, author, pages, read){
     return book.readStatus()
 }
 
-
-
 function displayBook (array) {
     let obj;
     for(let prop in array){
@@ -44,6 +42,14 @@ function displayBook (array) {
     return obj
 }
 
+function displayNewTitle(){
+    if(!(document.querySelector('h1.newTitle'))){
+        const newTitle = document.createElement('h1')
+        newTitle.className = 'newTitle'
+        newTitle.textContent = 'Fill The Form To Add Your Books'
+        containerBorder.appendChild(newTitle);
+} 
+}
 
 submitButton.addEventListener('click', function(event){
     addBookToLibrary(titleOfBook.value, authorOfBook.value, numberOfPages.value, '')
@@ -56,11 +62,9 @@ submitButton.addEventListener('click', function(event){
     containerBorder.remove();
     cardContainer.classList.add('new_card_container');
     cardContainer.classList.remove('container_border')
-    // document.querySelector('cards_container h1').remove()
-
-
+    
     const bookTitle = document.createElement('p');
-    bookTitle.textContent = `Book Title : ${displayBook(myLibrary).title}`;
+    bookTitle.textContent = `Title : ${displayBook(myLibrary).title}`;
 
     const author = document.createElement('p');
     author.textContent = `Author : ${displayBook(myLibrary).author}`
@@ -75,22 +79,17 @@ submitButton.addEventListener('click', function(event){
     deleteBook.textContent = 'Remove Book'
     deleteBook.className = 'deleteBtn'
 
-
     const bookCompleted = document.createElement('button');
     bookCompleted.textContent = 'Completed?';
-
     
-
     bookCompleted.addEventListener('click', function(){
         
         if(book.readStatus() == 'yes'){
-            document.body.style.backgroundColor = 'green' 
             bookCompleted.textContent = 'Not Completed'
             bookComplete.textContent =  `Completed : No`
             bookCompletedButtonClicked = 'no'
         }
         else if(book.readStatus() == 'no'){
-            document.body.style.backgroundColor = 'red' 
             bookCompleted.textContent = 'Completed'
             bookComplete.textContent =  `Completed : Yes`
             bookCompletedButtonClicked = 'yes'
@@ -105,26 +104,19 @@ submitButton.addEventListener('click', function(event){
 
     const deleteButton = document.querySelector('.deleteBtn');
     deleteBook.addEventListener('click', function(){
-    // document.body.style.backgroundColor = 'green'
     div.remove()
     myLibrary.pop()
     console.log(myLibrary)
     console.log(myLibrary.length)
+
     if(myLibrary.length == 0){
-        // cardContainer.classList.add('new_card_container');
-        // document.body.style.backgroundColor = 'pink'
         cardContainer.classList.remove('new_card_container')
-    document.body.appendChild(containerBorder)
-    containerBorder.style.position = 'relative'
-    containerBorder.style.top = '-25px'
-        // const newTitle = document.createElement('h1')
-        // newTitle.className = 'newTitle'
-        // newTitle.textContent = 'Fill The Form To Add Your Books'
-        // cardContainer.appendChild(newTitle)
-// after clicking addbook i see a bug border dotted line at the bottom of the page
-    }  
-})
-    
+        document.body.appendChild(containerBorder)
+        containerBorder.style.position = 'relative'
+        containerBorder.style.top = '-15px'
+        displayNewTitle()
+}  
+})    
     div.appendChild(bookTitle);
     div.appendChild(author);
     div.appendChild(pages);
@@ -139,26 +131,15 @@ addBook.addEventListener('click', function(){
     addBook.remove();
     form.style.display = 'flex';
     containerTitle.remove();
-    cardContainer.classList.add('new_card_container')
+    displayNewTitle()
 })
 
 containerBorder.addEventListener('click', function(){
     containerTitle.remove();
     addBook.remove();    
-    form.style.display = 'flex';
-    cardContainer.classList.add('new_card_container')
-
+    form.style.display = 'flex';   
+    displayNewTitle()
 })
 
-
-
-
-// i was trying to make the form not to be empty
-// after the final delete. You might want to leave that 
-// for later
-//after you complete this project you need to make edits and try and 
-// use what you learnt in object constructors such as this keyword, bind,
-// call, apply, etc. It is the only way to improve as you need to practice
-// using them in actual projects
 
 console.log(myLibrary)
