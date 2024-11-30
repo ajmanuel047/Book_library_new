@@ -64,7 +64,7 @@ submitButton.addEventListener('click', function(event){
     cardContainer.classList.remove('container_border')
     
     const bookTitle = document.createElement('p');
-    bookTitle.textContent = `Title : ${displayBook(myLibrary).title}`;
+    bookTitle.textContent = `Book Title : ${displayBook(myLibrary).title}`;
 
     const author = document.createElement('p');
     author.textContent = `Author : ${displayBook(myLibrary).author}`
