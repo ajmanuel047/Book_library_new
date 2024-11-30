@@ -31,7 +31,6 @@ let book = undefined
 function addBookToLibrary(title, author, pages, read){
     book = new Book(title, author, pages, read)
     myLibrary.push(book)
-    return book.readStatus()
 }
 
 function displayBook (array) {
