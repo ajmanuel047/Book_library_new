@@ -18,13 +18,12 @@ class Book {
         this.pages = pages;
         this.read = read;  
     }
-}
-
-Book.prototype.readStatus = function (){
-    if(bookCompletedButtonClicked == 'yes'){
-        return 'yes'
-    }else if(bookCompletedButtonClicked == 'no'){
-        return 'no'
+    readStatus(){
+        if(bookCompletedButtonClicked == 'yes'){
+            return 'yes'
+        }else if(bookCompletedButtonClicked == 'no'){
+            return 'no'
+        }
     }
 }
 
