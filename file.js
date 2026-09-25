@@ -8,6 +8,9 @@ const containerBorder = document.querySelector('.container_border')
 const titleOfBook = document.querySelector('#title');
 const authorOfBook = document.querySelector('#author')
 const numberOfPages = document.querySelector('#pages')
+const titleErrorMessage = document.querySelector('#title +span.error-Message');
+const authorErrorMessage = document.getElementById('authorErrorMessage')
+const pagesErrorMessage = document.getElementById('pagesErrorMessage')
 
 let bookCompletedButtonClicked = 'no'
 
@@ -128,6 +131,25 @@ submitButton.addEventListener('click', function(event){
 })
 
 addBook.addEventListener('click', function(){
+    titleOfBook.addEventListener('input', (event) => {
+    if(titleOfBook.validity.valid){
+        titleErrorMessage.textContent = ""
+    }else {
+        displayErrorMessage()
+    }
+})
+
+function displayErrorMessage(){
+    if(document.activeElement == titleOfBook){
+        console.log('yes')
+        if(titleOfBook.validity.valueMissing){
+            titleErrorMessage.textContent = `Add Book Title`
+            // titleErrorMessage.style.width = '100px'
+        }else if(titleOfBook.validity.tooShort){
+            titleErrorMessage.textContent = `Characters Must Be More Than ${titleOfBook.minLength}`
+        }
+    }
+}
     addBook.remove();
     form.style.display = 'flex';
     containerTitle.remove();
@@ -135,6 +157,9 @@ addBook.addEventListener('click', function(){
 })
 
 containerBorder.addEventListener('click', function(){
+    console.log(titleErrorMessage)
+    console.log(authorErrorMessage)
+    console.log(pagesErrorMessage)
     containerTitle.remove();
     addBook.remove();    
     form.style.display = 'flex';   

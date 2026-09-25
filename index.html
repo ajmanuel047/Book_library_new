@@ -16,20 +16,23 @@
     <button>Add Book</button>
   </div>
 
-  <form>
+  <form novalidate>
     <div>
       <label for = "title">Book Title </label>
-      <input type = "text" maxlength="30" id = "title" name = "title">
+      <input type = "text" maxlength="30" id = "title" name = "title" required minlength="3">
+      <span class="error-Message" aria-live="polite"></span>
     </div>
 
     <div>
       <label for = "author">Book Author</label>
       <input type = "text" maxlength="30" id = "author" name = "author">
+      <span id="authorErrorMessage"></span>
     </div>
 
     <div>
       <label>Pages</label>
       <input type = "number" min = "0" id="pages">
+      <span id="pagesErrorMessage"></span>
     </div>
 
     <div>
