@@ -9,7 +9,7 @@ const titleOfBook = document.querySelector('#title');
 const authorOfBook = document.querySelector('#author')
 const numberOfPages = document.querySelector('#pages')
 const titleErrorMessage = document.querySelector('#title +span.error-Message');
-const authorErrorMessage = document.getElementById('authorErrorMessage')
+const authorErrorMessage = document.querySelector('#author +span.error-Message')
 const pagesErrorMessage = document.getElementById('pagesErrorMessage')
 
 let bookCompletedButtonClicked = 'no'
@@ -131,10 +131,19 @@ submitButton.addEventListener('click', function(event){
 })
 
 addBook.addEventListener('click', function(){
-    titleOfBook.addEventListener('input', (event) => {
+  titleOfBook.addEventListener('input', (event) => {
     if(titleOfBook.validity.valid){
         titleErrorMessage.textContent = ""
     }else {
+        displayErrorMessage()
+    }
+})
+
+authorOfBook.addEventListener('input', (event) => {
+    console.log(authorOfBook.value)
+    if(authorOfBook.validity.valid){
+        authorErrorMessage.textContent = ""
+    }else{
         displayErrorMessage()
     }
 })
@@ -146,7 +155,15 @@ function displayErrorMessage(){
             titleErrorMessage.textContent = `Add Book Title`
             // titleErrorMessage.style.width = '100px'
         }else if(titleOfBook.validity.tooShort){
-            titleErrorMessage.textContent = `Characters Must Be More Than ${titleOfBook.minLength}`
+            titleErrorMessage.textContent = `Characters Must Be At Least ${titleOfBook.minLength}`
+        }
+    }
+
+    if(document.activeElement == authorOfBook){
+        if(authorOfBook.validity.valueMissing){
+            authorErrorMessage.textContent = "Add Author's Name"
+        }else if(authorOfBook.validity.tooShort){
+            authorErrorMessage.textContent = `Characters Must Be At Least ${authorOfBook.minLength}`
         }
     }
 }
