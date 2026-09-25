@@ -10,7 +10,7 @@ const authorOfBook = document.querySelector('#author')
 const numberOfPages = document.querySelector('#pages')
 const titleErrorMessage = document.querySelector('#title +span.error-Message');
 const authorErrorMessage = document.querySelector('#author +span.error-Message')
-const pagesErrorMessage = document.getElementById('pagesErrorMessage')
+const pagesErrorMessage = document.querySelector('#pages +span.error-Message')
 
 let bookCompletedButtonClicked = 'no'
 
@@ -148,6 +148,15 @@ authorOfBook.addEventListener('input', (event) => {
     }
 })
 
+numberOfPages.addEventListener('input', (event) => {
+    console.log(numberOfPages.value)
+    if(numberOfPages.validity.valid){
+        pagesErrorMessage.textContent = ""
+    }else {
+        displayErrorMessage()
+    }
+})
+
 function displayErrorMessage(){
     if(document.activeElement == titleOfBook){
         console.log('yes')
@@ -165,6 +174,12 @@ function displayErrorMessage(){
         }else if(authorOfBook.validity.tooShort){
             authorErrorMessage.textContent = `Characters Must Be At Least ${authorOfBook.minLength}`
         }
+    }
+
+    if(numberOfPages.validity.valueMissing){
+        pagesErrorMessage.textContent = 'Add Number Of Pages'
+    }else if(numberOfPages.validity.rangeUnderflow){
+        pagesErrorMessage.textContent = `Must Be At Least ${numberOfPages.min} Pages`
     }
 }
     addBook.remove();
